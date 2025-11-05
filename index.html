@@ -5,219 +5,269 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NumisCOL | Aplicación Numismática</title>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
   <link rel="icon" type="image/png" href="icon.png" />
+
+  <!-- Google Fonts: Poppins + Material Symbols -->
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Material+Symbols+Outlined" rel="stylesheet">
+
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif !important;
+    }
 
-```
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background-color: #f58445 !important;
-  color: #fff;
-  overflow-x: hidden;
-}
+    html, body {
+      height: 100%;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #f58445, #a83200) fixed !important;
+      background-repeat: no-repeat !important;
+      background-attachment: fixed !important;
+      background-size: cover !important;
+      color: #fff;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
 
-header {
-  text-align: center;
-  padding: 2rem 1rem 1rem 1rem;
-  animation: fadeInDown 1.2s ease;
-}
+    .page-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: stretch;
+      min-height: 100vh;
+      width: 100%;
+    }
 
-header img {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  border: 3px solid #ffd700;
-  animation: glowPulse 3s infinite ease-in-out;
-}
+    header {
+      text-align: center;
+      padding: 2rem 1rem 1rem 1rem;
+      animation: fadeInDown 1.2s ease;
+    }
 
-h1 {
-  margin-top: 1rem;
-  font-size: 2rem;
-  color: #fff;
-  text-shadow: 2px 2px 10px rgba(0,0,0,0.4);
-  font-weight: 700;
-}
+    header img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 3px solid #ffd700;
+      animation: glowPulse 3s infinite ease-in-out;
+    }
 
-.hero {
-  text-align: center;
-  padding: 1rem 2rem;
-  animation: fadeInUp 1.2s ease;
-}
+    h1 {
+      margin-top: 1rem;
+      font-size: 2rem;
+      color: #fff;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.4);
+      font-weight: 700;
+    }
 
-.hero p {
-  max-width: 650px;
-  margin: 0.5rem auto 1.5rem;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #fff;
-  font-weight: 400;
-}
+    .hero {
+      text-align: center;
+      padding: 1rem 2rem;
+      animation: fadeInUp 1.2s ease;
+    }
 
-.btn-download {
-  position: relative;
-  background: linear-gradient(145deg, #ffd700, #b8860b);
-  color: #222;
-  font-weight: 700;
-  border: none;
-  border-radius: 50px;
-  padding: 0.9rem 2.2rem;
-  text-decoration: none;
-  font-size: 1.1rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  transition: all 0.3s ease;
-  display: inline-block;
-  overflow: hidden;
-}
+    .hero p {
+      max-width: 650px;
+      margin: 0.5rem auto 1.5rem;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #fff;
+      font-weight: 400;
+    }
 
-.btn-download::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -75%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(
-    120deg,
-    rgba(255,255,255,0) 0%,
-    rgba(255,255,255,0.5) 50%,
-    rgba(255,255,255,0) 100%
-  );
-  transform: skewX(-20deg);
-  animation: shine 3s infinite linear;
-}
+    .btn-download {
+      position: relative;
+      background: linear-gradient(145deg, #ffd700, #b8860b);
+      color: #222;
+      font-weight: 700;
+      border: none;
+      border-radius: 50px;
+      padding: 0.9rem 2.2rem;
+      text-decoration: none;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+      display: inline-block;
+      overflow: hidden;
+    }
 
-.btn-download:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
-  background: linear-gradient(145deg, #ffe34c, #cfa707);
-}
+    .btn-download::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -75%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0.5) 50%,
+        rgba(255,255,255,0) 100%
+      );
+      transform: skewX(-20deg);
+      animation: shine 3s infinite linear;
+    }
 
-@keyframes shine {
-  0% { left: -75%; }
-  50% { left: 125%; }
-  100% { left: 125%; }
-}
+    .btn-download:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+      background: linear-gradient(145deg, #ffe34c, #cfa707);
+    }
 
-@keyframes glowPulse {
-  0%, 100% { box-shadow: 0 0 25px rgba(255,215,0,0.5); }
-  50% { box-shadow: 0 0 35px rgba(255,215,0,0.9); }
-}
+    @keyframes shine {
+      0% { left: -75%; }
+      50% { left: 125%; }
+      100% { left: 125%; }
+    }
 
-.android-note {
-  margin-top: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.95rem;
-  color: #fff;
-  opacity: 0.9;
-}
+    @keyframes glowPulse {
+      0%, 100% { box-shadow: 0 0 25px rgba(255,215,0,0.5); }
+      50% { box-shadow: 0 0 35px rgba(255,215,0,0.9); }
+    }
 
-.android-note img {
-  width: 24px;
-  height: 24px;
-  filter: brightness(0) invert(1);
-}
+    .android-note {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.95rem;
+      color: #fff;
+      opacity: 0.95;
+    }
 
-section.info {
-  background: rgba(255,255,255,0.95);
-  color: #222;
-  border-radius: 20px;
-  padding: 2rem 1.5rem;
-  max-width: 800px;
-  margin: 3rem auto;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-  animation: fadeInUp 1.5s ease;
-}
+    .android-note .material-symbols-outlined {
+      font-size: 24px;
+      color: white;
+      vertical-align: middle;
+    }
 
-section.info h2 {
-  color: #8b0000;
-  margin-bottom: 1rem;
-  font-weight: 600;
-}
+    .android-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #fff78a 0%, #ffd700 40%, #b8860b 100%);
+      box-shadow: 0 0 10px rgba(255,215,0,0.8);
+      animation: dotPulse 2.5s infinite ease-in-out;
+    }
 
-section.info p {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: #333;
-}
+    @keyframes dotPulse {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(255,215,0,0.6);
+      }
+      50% {
+        transform: scale(1.3);
+        box-shadow: 0 0 20px rgba(255,215,0,1);
+      }
+    }
 
-footer {
-  text-align: center;
-  padding: 1rem;
-  background-color: rgba(0,0,0,0.3);
-  color: #f8f8f8;
-  font-size: 0.9rem;
-  border-top: 1px solid rgba(255,255,255,0.3);
-}
+    section.info {
+      background: rgba(255,255,255,0.92);
+      color: #222;
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
+      max-width: 800px;
+      margin: 3rem auto;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      animation: fadeInUp 1.5s ease;
+    }
 
-@keyframes fadeInUp {
-  from {opacity: 0; transform: translateY(20px);}
-  to {opacity: 1; transform: translateY(0);}
-}
+    section.info h2 {
+      color: #8b0000;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
 
-@keyframes fadeInDown {
-  from {opacity: 0; transform: translateY(-20px);}
-  to {opacity: 1; transform: translateY(0);}
-}
+    section.info p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #333;
+    }
 
-@media (max-width: 768px) {
-  h1 { font-size: 1.6rem; }
-  .hero p { font-size: 1rem; }
-  .btn-download { font-size: 1rem; padding: 0.8rem 1.8rem; }
-}
-```
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: rgba(0,0,0,0.3);
+      color: #f8f8f8;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255,255,255,0.3);
+      margin-top: auto;
+    }
 
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes fadeInDown {
+      from {opacity: 0; transform: translateY(-20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 1.6rem; }
+      .hero p { font-size: 1rem; }
+      .btn-download { font-size: 1rem; padding: 0.8rem 1.8rem; }
+    }
   </style>
+
 </head>
+
 <body>
+  <div class="page-container">
+    <header>
+      <img src="icon.png" alt="Logo NumisCOL">
+      <h1>NumisCOL</h1>
+    </header>
 
-  <header>
-    <img src="icon.png" alt="Logo NumisCOL">
-    <h1>NumisCOL</h1>
-  </header>
+```
+<div class="hero">
+  <p>Organiza y gestiona tu colección numismática desde tu celular. 
+     Registra, clasifica y valora monedas con una interfaz moderna 
+     y sencilla inspirada en el coleccionismo colombiano.</p>
 
-  <div class="hero">
-    <p>Organiza y gestiona tu colección numismática desde tu celular. 
-       Registra, clasifica y valora monedas con una interfaz moderna 
-       y sencilla inspirada en el coleccionismo colombiano.</p>
+  <a href="https://github.com/kai8024/NumisColAPP/releases/download/v1.0.0/NumisCOL.apk" 
+     class="btn-download" target="_blank" rel="noopener noreferrer">
+     Descargar NumisCOL
+  </a>
 
-<a href="https://github.com/kai8024/NumisColAPP/releases/download/v1.0.0/NumisCOL.apk" 
-   class="btn-download" target="_blank" rel="noopener noreferrer">
-   Descargar NumisCOL
-</a>
-
-<div class="android-note">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Android_logo_2019_%28white%29.svg" alt="Android logo">
-  <span>Solo disponible para dispositivos Android</span>
+  <div class="android-note">
+    <span class="material-symbols-outlined">android</span>
+    <div class="android-dot"></div>
+    <span>Solo disponible para dispositivos Android</span>
+  </div>
 </div>
 
+<section class="info">
+  <h2>¿Qué es NumisCOL?</h2>
+  <p>
+    NumisCOL es una aplicación móvil creada para los coleccionistas de monedas en Colombia. 
+    Permite registrar, catalogar y valorar monedas de forma sencilla, guardando información 
+    como país, año, composición y valor histórico. 
+  </p>
+  <p>
+    Su propósito es promover el coleccionismo y la preservación del patrimonio numismático 
+    colombiano, brindando una herramienta accesible, moderna y educativa. 
+    Desarrollada como parte del proyecto académico de la Universidad Central.
+  </p>
+  <p style="text-align:center; font-weight:600; margin-top:1rem;">
+    Desarrollada por Jean Paul Lavado Mena y Yhonatan Estyben García Becerra<br>
+    Universidad Central – Práctica de Ingeniería IV
+  </p>
+</section>
+
+<footer>
+  © 2025 NumisCOL | Proyecto académico
+</footer>
+```
+
   </div>
-
-  <section class="info">
-    <h2>¿Qué es NumisCOL?</h2>
-    <p>
-      NumisCOL es una aplicación móvil creada para los coleccionistas de monedas en Colombia. 
-      Permite registrar, catalogar y valorar monedas de forma sencilla, guardando información 
-      como país, año, composición y valor histórico. 
-    </p>
-    <p>
-      Su propósito es promover el coleccionismo y la preservación del patrimonio numismático 
-      colombiano, brindando una herramienta accesible, moderna y educativa. 
-      Desarrollada como parte del proyecto académico de la Universidad Central.
-    </p>
-    <p style="text-align:center; font-weight:600; margin-top:1rem;">
-      Desarrollada por Jean Paul Lavado Mena y Yhonatan Estyben García Becerra<br>
-      Universidad Central – Práctica de Ingeniería IV
-    </p>
-  </section>
-
-  <footer>
-    © 2025 NumisCOL | Proyecto académico
-  </footer>
-
 </body>
 </html>
